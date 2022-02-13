@@ -39,4 +39,21 @@ class CarDistanceTest {
         // then
         assertThat(result).isEqualTo("---");
     }
+
+    @DisplayName("자동차는 random값이 3 이하이면 이동하지 않는다.")
+    @ParameterizedTest
+    @ValueSource(ints = {0,1,2,3})
+    void not_move_not_more_than_four(int randomValue) {
+        // given
+        int distance = 2;
+
+        CarDistance carDistance = new CarDistance(distance);
+
+        // when
+        carDistance.move(randomValue);
+        String result = carDistance.printDistance();
+
+        // then
+        assertThat(result).isEqualTo("--");
+    }
 }
