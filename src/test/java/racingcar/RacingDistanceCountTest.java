@@ -20,4 +20,19 @@ class RacingDistanceCountTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이동횟수가 null이면 안 됩니다.");
     }
+
+    @DisplayName("이동 횟수가 음수이면 예외를 던지는 테스트")
+    @Test
+    void racing_distance_count_negative_exception() {
+        // given
+        int distanceCount = -1;
+        // when
+
+        // then
+        assertThatThrownBy(() ->
+                new RacingDistanceCount(distanceCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이동횟수가 음수이면 안 됩니다.");
+    }
+
 }
