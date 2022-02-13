@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarDistanceTest {
 
@@ -29,7 +30,6 @@ class CarDistanceTest {
     void one_move_more_than_four(int randomValue) {
         // given
         int distance = 2;
-
         CarDistance carDistance = new CarDistance(distance);
 
         // when
@@ -42,11 +42,10 @@ class CarDistanceTest {
 
     @DisplayName("자동차는 random값이 3 이하이면 이동하지 않는다.")
     @ParameterizedTest
-    @ValueSource(ints = {0,1,2,3})
+    @ValueSource(ints = {0, 1, 2, 3})
     void not_move_not_more_than_four(int randomValue) {
         // given
         int distance = 2;
-
         CarDistance carDistance = new CarDistance(distance);
 
         // when
@@ -55,5 +54,21 @@ class CarDistanceTest {
 
         // then
         assertThat(result).isEqualTo("--");
+    }
+
+    @DisplayName("자동차의 random값이 음수 또는 9 초과이면 예외를 던진다.")
+    @ParameterizedTest
+    @ValueSource(ints = {-1, 10})
+    void exception_outlier_input(int randomValue) {
+        // given
+        int distance = 2;
+        CarDistance carDistance = new CarDistance(distance);
+
+        // when
+
+        // then
+        assertThatThrownBy( () -> carDistance.move(randomValue))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("파라미터가 음수 혹은 9 초과이면 안됩니다.");
     }
 }
