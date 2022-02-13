@@ -20,5 +20,4 @@ class RacingDistanceCountTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이동횟수가 null이면 안 됩니다.");
     }
-
 }
