@@ -3,6 +3,8 @@ package racingcar;
 import static racingcar.TextUtil.printDistanceByHyphen;
 
 public class CarDistance {
+    private final int CAN_MOVE_VALUE = 4;
+    private final int MOVE_VALUE = 1;
     private int distance;
 
     public CarDistance(int distance) {
@@ -14,8 +16,8 @@ public class CarDistance {
     }
 
     public void move(int randomValue) {
-        if(randomValue >= 4) {
-            this.distance += 1;
+        if(randomValue >= CAN_MOVE_VALUE) {
+            this.distance += MOVE_VALUE;
         }
     }
 }
