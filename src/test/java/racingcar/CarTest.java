@@ -11,7 +11,8 @@ class CarTest {
     @Test
     void car_has_distance() {
         // given
-        Car car = new Car();
+        int id = 1;
+        Car car = new Car(id);
 
         // when
         String result = car.printCarDistance();
