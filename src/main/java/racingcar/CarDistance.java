@@ -12,4 +12,10 @@ public class CarDistance {
     public String printDistance() {
         return printDistanceByHyphen(distance);
     }
+
+    public void move(int randomValue) {
+        if(randomValue >= 4) {
+            this.distance += 1;
+        }
+    }
 }
