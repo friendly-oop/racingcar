@@ -3,6 +3,7 @@ package racingcar;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class RaceTest {
@@ -35,5 +36,20 @@ class RaceTest {
                 Race.of(givenParticipantNumber, givenGameNumber))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(VALID_GAME_COUNT_MESSAGE);
+    }
+
+    @DisplayName("참가 자동차 수를 크기로 가지는 participant List를 가진다.")
+    @Test
+    void move_test() {
+        // given
+        int givenParticipantNumber = 3;
+        int givenGameNumber = 5;
+
+        // when
+        Race race = Race.of(givenParticipantNumber, givenGameNumber);
+        int result = race.getParticipantSize();
+
+        // then
+        assertThat(result).isEqualTo(givenParticipantNumber);
     }
 }
