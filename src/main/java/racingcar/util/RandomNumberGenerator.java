@@ -7,7 +7,7 @@ public class RandomNumberGenerator {
     private static final int ROUND_BOUND = 10;
     private static final ThreadLocalRandom random = ThreadLocalRandom.current();
 
-    public static int pullNumber() {
+    public static int getRandomNumberZeroToNine() {
         return random.nextInt(ROUND_BOUND);
     }
 }
