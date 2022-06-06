@@ -13,7 +13,7 @@ class RandomNumberGeneratorTest {
 
     @DisplayName("0 ~ 9 사이에 난수를 생성한다.")
     @Test
-    void print_car_distance_by_hyphen() {
+    void get_random_number_zero_to_nine_test() {
         // when
         int randomNumber = getRandomNumberZeroToNine();
 
