@@ -7,18 +7,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
 
-    @DisplayName("자동차의 이동거리를 가진다 (초기값은 0)")
+    @DisplayName("움직이면 위치가 1 증가한다.")
     @Test
-    void car_has_distance() {
+    void move_test() {
         // given
-        int id = 1;
-        Car car = new Car(id);
+        Car car = new Car();
+        int nowLocation = car.getLocation();
 
         // when
-        String result = car.printCarDistance();
+        car.move();
+        int locationAfterMove = car.getLocation();
 
         // then
-        assertThat(result).isEqualTo("");
+        assertThat(locationAfterMove).isEqualTo(nowLocation + 1);
     }
 
 }
