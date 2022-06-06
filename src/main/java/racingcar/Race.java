@@ -1,12 +1,15 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Race {
     private static final int MIN_PARTICIPANT_COUNT = 1;
     private static final int MIN_GAME_COUNT = 1;
     private static final String VALID_PARTICIPANT_COUNT_MESSAGE = "참가 자동차 수는 1 이상이어야 합니다.";
     private static final String VALID_GAME_COUNT_MESSAGE = "경기 수는 1 이상이어야 합니다.";
 
-    private Participant participant;
+    private List<Car> participants;
     private Game gameCount;
 
     public static Race of(final int participantCount, final int gameCount) {
@@ -14,7 +17,11 @@ public class Race {
         validateGameCount(gameCount);
 
         Race race = new Race();
-        race.participant = Participant.of(participantCount);
+        race.participants = new ArrayList<>();
+        for(int i = 0; i< participantCount;i++) {
+            race.participants.add(new Car());
+        }
+
         race.gameCount = Game.of(gameCount);
 
         return race;
@@ -33,10 +40,6 @@ public class Race {
     }
 
     public int getParticipantSize() {
-        return participant.getSize();
-    }
-
-    public Game getGameCount() {
-        return gameCount;
+        return participants.size();
     }
 }
