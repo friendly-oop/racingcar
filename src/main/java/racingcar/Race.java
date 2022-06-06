@@ -5,15 +5,15 @@ public class Race {
     private static final int MIN_GAME_COUNT = 1;
     private static final String VALID_PARTICIPANT_MESSAGE = "참가 자동차 수는 1 이상이어야 합니다.";
 
-    private int participantCount;
-    private int gameCount;
+    private Participant participantCount;
+    private Game gameCount;
 
     public static Race of(final int participantCount, final int gameCount) {
         validateParticipantCount(participantCount);
 
         Race race = new Race();
-        race.participantCount = participantCount;
-        race.gameCount = gameCount;
+        race.participantCount = Participant.of(participantCount);
+        race.gameCount = Game.of(gameCount);
 
         return race;
     }
