@@ -14,7 +14,7 @@ public class Car {
         );
     }
 
-    public CarLocation getLocation() {
-        return location;
+    public int getLocation() {
+        return location.getLocation();
     }
 }
