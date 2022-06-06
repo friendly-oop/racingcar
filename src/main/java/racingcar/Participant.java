@@ -1,14 +1,17 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Participant {
-    private int count;
+    private List<Car> participant;
 
     private Participant() {
     }
 
     public static Participant of(int participantCount) {
         Participant participant = new Participant();
-        participant.count = participantCount;
+        participant.participant = new ArrayList<>(participantCount);
         return participant;
     }
 }

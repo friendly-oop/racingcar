@@ -15,6 +15,7 @@ class RaceTest {
         // given
         int givenParticipantNumber = 0;
         int givenGameNumber = 1;
+
         // then
         assertThatThrownBy(() ->
                 Race.of(givenParticipantNumber, givenGameNumber))
@@ -28,6 +29,7 @@ class RaceTest {
         // given
         int givenParticipantNumber = 1;
         int givenGameNumber = 0;
+
         // then
         assertThatThrownBy(() ->
                 Race.of(givenParticipantNumber, givenGameNumber))

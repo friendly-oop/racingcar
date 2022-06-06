@@ -6,7 +6,7 @@ public class Race {
     private static final String VALID_PARTICIPANT_COUNT_MESSAGE = "참가 자동차 수는 1 이상이어야 합니다.";
     private static final String VALID_GAME_COUNT_MESSAGE = "경기 수는 1 이상이어야 합니다.";
 
-    private Participant participantCount;
+    private Participant participant;
     private Game gameCount;
 
     public static Race of(final int participantCount, final int gameCount) {
@@ -14,7 +14,7 @@ public class Race {
         validateGameCount(gameCount);
 
         Race race = new Race();
-        race.participantCount = Participant.of(participantCount);
+        race.participant = Participant.of(participantCount);
         race.gameCount = Game.of(gameCount);
 
         return race;
