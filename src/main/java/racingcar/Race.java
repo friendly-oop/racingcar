@@ -31,4 +31,12 @@ public class Race {
             throw new IllegalArgumentException(VALID_GAME_COUNT_MESSAGE);
         }
     }
+
+    public int getParticipantSize() {
+        return participant.getSize();
+    }
+
+    public Game getGameCount() {
+        return gameCount;
+    }
 }

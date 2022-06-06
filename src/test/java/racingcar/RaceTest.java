@@ -40,7 +40,7 @@ class RaceTest {
 
     @DisplayName("참가 자동차 수를 크기로 가지는 participant List를 가진다.")
     @Test
-    void move_test() {
+    void participants_size_test() {
         // given
         int givenParticipantNumber = 3;
         int givenGameNumber = 5;
