@@ -12,11 +12,11 @@ class CarTest {
     void move_test() {
         // given
         Car car = new Car();
-        int nowLocation = car.getLocation();
+        int nowLocation = car.getLocation().getLocation();
 
         // when
         car.move();
-        int locationAfterMove = car.getLocation();
+        int locationAfterMove = car.getLocation().getLocation();
 
         // then
         assertThat(locationAfterMove).isEqualTo(nowLocation + 1);

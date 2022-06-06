@@ -1,15 +1,20 @@
 package racingcar;
 
 public class Car {
-    private int id;
-    private CarDistance distance;
+    private static final int CAR_MOVE_DISTANCE = 1;
+    private CarLocation location;
 
-    public Car(int id) {
-        this.id = id;
-        this.distance = new CarDistance(0);
+    public Car() {
+        this.location = CarLocation.of(0);
     }
 
-    public String printCarDistance() {
-        return this.distance.printDistance();
+    public void move() {
+        this.location = CarLocation.of(
+                location.getLocation() + CAR_MOVE_DISTANCE
+        );
+    }
+
+    public CarLocation getLocation() {
+        return location;
     }
 }
